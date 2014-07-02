@@ -3,7 +3,7 @@
   <model name="uarm">
     <static>1</static>
     <link name="base_l">
-      <pose>1 1 1 0 0 0</pose>
+      <pose>0 0 0.555 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -16,7 +16,7 @@
         </inertia>
       </inertial>
       <collision name="collision">
-        <pose>0 0 0.04 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://uarm/meshes/base_l.dae</uri>
@@ -24,11 +24,400 @@
         </geometry>
       </collision>
       <visual name="visual">
-        <pose>0 0 0.04 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://uarm/meshes/base_l.dae</uri>
-            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="base_r">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/base_r.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/base_r.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="big_under_arm_l">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/big_under_arm_l.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/big_under_arm_l.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="big_under_arm_r">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/big_under_arm_r.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/big_under_arm_r.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="small_under_arm_l">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/small_under_arm_l.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/small_under_arm_l.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="small_under_arm_r">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/small_under_arm_r.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/small_under_arm_r.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="elbow_joint">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/elbow_joint.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/elbow_joint.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="shoulder_l">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/shoulder_l.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/shoulder_l.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="shoulder_r">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/shoulder_r.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/shoulder_r.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="big_fore_arm_l">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/big_fore_arm_l.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/big_fore_arm_l.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="big_fore_arm_r">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/big_fore_arm_r.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/big_fore_arm_r.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="small_fore_arm">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/small_fore_arm.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/small_fore_arm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="wrist_l">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/wrist_l.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/wrist_l.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="wrist_r">
+      <pose>0 0 0.555 0 0 0</pose>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0051</ixx>
+          <iyy>0.0051</iyy>
+          <izz>0.0090</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/wrist_r.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://uarm/meshes/wrist_r.dae</uri>
           </mesh>
         </geometry>
       </visual>
