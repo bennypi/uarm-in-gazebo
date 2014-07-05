@@ -15,8 +15,8 @@
     </light>
     <model name='ground_plane'>
       <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
+      <link name='ground_link'>
+      <collision name='collision'>
           <geometry>
             <plane>
               <normal>0 0 1</normal>
@@ -61,6 +61,10 @@
         <gravity>1</gravity>
       </link>
     </model>
+    <include>
+      <uri>model://uarm</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
     <physics type='ode'>
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
@@ -72,26 +76,9 @@
       <background>0.7 0.7 0.7 1</background>
       <shadows>1</shadows>
     </scene>
-    <include>
-      <uri>file://../models/uarm</uri>
-    </include>>
-    <state world_name='uarm_world'>
-      <sim_time>215 17000000</sim_time>
-      <real_time>216 431590841</real_time>
-      <wall_time>1401093110 143458940</wall_time>
-      <model name='ground_plane'>
-        <pose>0 0 0 0 -0 0</pose>
-        <link name='link'>
-          <pose>0 0 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-    </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>10.7018 -0.548988 2.91704 0 0.259643 2.99219</pose>
+        <pose>0.961405 0.684332 0.464936 7.1361e-18 0.235643 -2.675</pose>
         <view_controller>orbit</view_controller>
       </camera>
     </gui>

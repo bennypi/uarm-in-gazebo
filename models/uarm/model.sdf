@@ -1,9 +1,62 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
   <model name="uarm">
-    <static>1</static>
+    <static>0</static>
+    <link name='table_link'>
+      <pose>0 0 0.02 0 0 0</pose>
+      <inertial>
+        <mass>15</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <cylinder>
+            <radius> 0.1 </radius>
+            <length> 0.002 </length>
+          </cylinder>
+        </geometry>
+        <max_contacts>10</max_contacts>
+        <surface>
+          <bounce/>
+          <friction>
+            <ode/>
+          </friction>
+          <contact>
+            <ode/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <cylinder>
+            <radius> 0.1 </radius>
+            <length> 0.002 </length>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+    </link>
     <link name="base_l">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose> 0 0 0 0 0 0 </pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -32,8 +85,9 @@
         </geometry>
       </visual>
     </link>
+  <!--
     <link name="base_r">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -62,14 +116,16 @@
         </geometry>
       </visual>
     </link>
+  -->
     <link name="big_under_arm_l">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
+        <pose> -0.008 -0.015 0.13 0 0 0</pose>
         <inertia>
-          <ixx>0.0051</ixx>
-          <iyy>0.0051</iyy>
-          <izz>0.0090</izz>
+          <ixx>0</ixx>
+          <iyy>0</iyy>
+          <izz>0</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
@@ -92,8 +148,9 @@
         </geometry>
       </visual>
     </link>
+  <!--
     <link name="big_under_arm_r">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -123,7 +180,7 @@
       </visual>
     </link>
     <link name="small_under_arm_l">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -153,7 +210,7 @@
       </visual>
     </link>
     <link name="small_under_arm_r">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -183,7 +240,7 @@
       </visual>
     </link>
     <link name="elbow_joint">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -212,14 +269,16 @@
         </geometry>
       </visual>
     </link>
+  -->
     <link name="shoulder_l">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
+        <pose> 0 -0.01 0.09 0 0 0</pose>
         <inertia>
-          <ixx>0.0051</ixx>
-          <iyy>0.0051</iyy>
-          <izz>0.0090</izz>
+          <ixx>0</ixx>
+          <iyy>0</iyy>
+          <izz>0</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
@@ -242,8 +301,9 @@
         </geometry>
       </visual>
     </link>
+  <!--
     <link name="shoulder_r">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -273,7 +333,7 @@
       </visual>
     </link>
     <link name="big_fore_arm_l">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -303,7 +363,7 @@
       </visual>
     </link>
     <link name="big_fore_arm_r">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -333,7 +393,7 @@
       </visual>
     </link>
     <link name="small_fore_arm">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -363,7 +423,7 @@
       </visual>
     </link>
     <link name="wrist_l">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -393,7 +453,7 @@
       </visual>
     </link>
     <link name="wrist_r">
-      <pose>0 0 0.555 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <mass>1.5</mass>
         <inertia>
@@ -422,5 +482,34 @@
         </geometry>
       </visual>
     </link>
+ --> 
+    <joint name="left_ground_mount" type="revolute">
+      <pose>0 0 0 0 0 0</pose>
+      <child>base_l</child>
+      <parent>table_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="left_base_arm_joint">
+      <pose> -0.019 0 0.078 0 0 0</pose>
+      <child>big_under_arm_l</child>
+      <parent>base_l</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="left_base_shoulder_joint">
+      <pose> -0.019 0 0.078 0 0 0</pose>
+      <child>shoulder_l</child>
+      <parent>base_l</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
   </model>
 </sdf>
