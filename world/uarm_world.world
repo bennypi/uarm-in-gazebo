@@ -63,7 +63,7 @@
     </model>
     <include>
       <uri>model://uarm</uri>
-      <pose>0 0 0.1 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
     </include>
     <!--
     <model name='thing'>
