@@ -5,13 +5,13 @@
     <link name='table_link'>
       <pose>0 0 0.001 0 0 0</pose>
       <inertial>
-        <mass>10.55</mass>
+        <mass>50.55</mass>
         <inertia>
           <ixx>1</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
+          <ixy>1</ixy>
+          <ixz>1</ixz>
           <iyy>1</iyy>
-          <iyz>0</iyz>
+          <iyz>1</iyz>
           <izz>1</izz>
         </inertia>
       </inertial>
@@ -541,6 +541,43 @@
       </visual>
       <self_collide>1</self_collide>
     </link> 
+    <link name='suction_cup'>
+      <pose>-0.15 -0.0 0.14 0 0 0</pose>
+      <inertial>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>1</ixy>
+          <ixz>1</ixz>
+          <iyy>1</iyy>
+          <iyz>1</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <cylinder>
+            <radius> 0.01 </radius>
+            <length> 0.03 </length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <cylinder>
+            <radius> 0.01 </radius>
+            <length> 0.03 </length>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <self_collide>1</self_collide>
+    </link>
     
     <!-- JOINTS ----------------------------------------------->
     <joint name="center_table_mount" type="revolute">
@@ -709,6 +746,18 @@
       <parent>wrist_l</parent>
       <axis>
         <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="suction_cup_wrist_joint">
+      <pose> -0.14 -0.0 0.13 0 0 0</pose>
+      <child>suction_cup</child>
+      <parent>wrist_l</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
       </axis>
     </joint>
   </model>
