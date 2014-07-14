@@ -19,3 +19,7 @@
 *.exe
 *.out
 *.app
+
+# benny's stuff
+/build
+*~

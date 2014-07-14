@@ -760,5 +760,7 @@
         </limit>
       </axis>
     </joint>
+    <!-- Load the controller plugin to control the joints of the portal robot ! -->  
+    <plugin name="UarmController" filename="build/libUarmController.so"/>
   </model>
 </sdf>
