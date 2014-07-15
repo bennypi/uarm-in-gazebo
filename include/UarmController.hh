@@ -5,7 +5,7 @@
 #include "gazebo/physics/physics.hh"
 #include "gazebo/transport/TransportTypes.hh"
 
-#define NUM_JOINTS 1
+#define NUM_JOINTS 3
 
 namespace gazebo
 {

@@ -6,10 +6,10 @@ UarmController::UarmController()
 {
   for (int i = 0; i < NUM_JOINTS; i++)
   {
-    this->jointPIDs[i] = common::PID(10, 0, 0, 1, -1);
+    this->jointPIDs[i] = common::PID(5, 0, 1, 1, -1);
     this->jointPositions[i] = 0;
     this->jointVelocities[i] = 0;
-    this->jointMaxEfforts[i] = 10;
+    this->jointMaxEfforts[i] = 0.1;
   }
 }
 
@@ -23,10 +23,8 @@ void UarmController::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
 
   // get all joints
   this->joints[0] = _model->GetJoint("center_table_mount");
-//    this->jointPIDs[0] = common::PID(1, 0.1, 0.01, 1, -1, 0, 0);
-  this->jointPositions[0] = 0;
-//  this->jointVelocities[0] = 0;
-  this->jointMaxEfforts[0] = 0.1;
+  this->joints[1] = _model->GetJoint("left_base_shoulder_joint");
+  this->joints[2] = _model->GetJoint("left_base_arm_joint");
 
   this->updateConnection = event::Events::ConnectWorldUpdateBegin(boost::bind(&UarmController::OnUpdate, this));
 }
