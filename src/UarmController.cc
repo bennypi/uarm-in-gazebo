@@ -11,6 +11,7 @@ UarmController::UarmController()
     this->jointVelocities[i] = 0;
     this->jointMaxEfforts[i] = 0.1;
   }
+  jointPositions[1] = 0;
 }
 
 //////////////////////////////////////////////////
