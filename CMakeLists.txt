@@ -19,3 +19,11 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 add_library(UarmController SHARED src/UarmController.cc)
 target_link_libraries(UarmController new_joint_position_msgs new_position_msgs ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES})
 add_dependencies(UarmController new_joint_position_msgs new_position_msgs)
+
+add_library(uarm_publisher src/uarm_publisher.cc)
+target_link_libraries(uarm_publisher new_joint_position_msgs new_position_msgs ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} )
+add_dependencies(uarm_publisher new_joint_position_msgs new_position_msgs)
+
+add_executable(uarm_pub src/uarm_pub.cc)
+target_link_libraries(uarm_pub uarm_publisher)
+add_dependencies(uarm_pub new_joint_position_msgs new_position_msgs)
