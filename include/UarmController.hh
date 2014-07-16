@@ -6,7 +6,7 @@
 #include "gazebo/transport/TransportTypes.hh"
 #include <gazebo/transport/transport.hh>
 #include <gazebo/msgs/msgs.hh>
-#include "new_joint_position.pb.h"
+#include "new_position.pb.h"
 #include <iostream>
 
 #define NUM_JOINTS 3
@@ -25,7 +25,7 @@ public:
   void OnUpdate();
 
 private:
-  void MoveCallback(uarm_msgs::msgs::NewJointPosition &_msg);
+  void MoveCallback(uarm_msgs::msgs::NewPosition &_msg);
 
 private:
   virtual void Init();

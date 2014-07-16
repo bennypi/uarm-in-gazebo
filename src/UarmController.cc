@@ -75,7 +75,7 @@ void UarmController::OnUpdate()
   }
 }
 
-void UarmController::MoveCallback(uarm_msgs::msgs::NewJointPosition &_msg)
+void UarmController::MoveCallback(uarm_msgs::msgs::NewPosition &_msg)
 {
 
 }
