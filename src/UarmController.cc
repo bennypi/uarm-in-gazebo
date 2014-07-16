@@ -29,11 +29,11 @@ void UarmController::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
 
   this->updateConnection = event::Events::ConnectWorldUpdateBegin(boost::bind(&UarmController::OnUpdate, this));
 
-  // Initialize transport
-  gazebo::transport::init();
-  // Create our node for communication
-  gazebo::transport::NodePtr node(new gazebo::transport::Node());
-  node->Init();
+//  // Initialize transport
+//  gazebo::transport::init();
+//  // Create our node for communication
+//  gazebo::transport::NodePtr node(new gazebo::transport::Node());
+//  node->Init();
   // Listen to Gazebo world_stats topic
 //  gazebo::transport::SubscriberPtr sub = node->Subscribe("~/world_stats", MoveCallback);
 }
@@ -70,8 +70,8 @@ void UarmController::OnUpdate()
     effort_cmd = this->jointPIDs[i].Update(pos_err, stepTime);
     effort_cmd = effort_cmd > max_cmd ? max_cmd : (effort_cmd < -max_cmd ? -max_cmd : effort_cmd);
     this->joints[i]->SetForce(0, effort_cmd);
-    if (i == 1)
-      std::cout << effort_cmd << std::endl;
+//    if (i == 1)
+//      std::cout << effort_cmd << std::endl;
   }
 }
 
