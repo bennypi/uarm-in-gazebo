@@ -6,12 +6,12 @@ UarmController::UarmController()
 {
   for (int i = 0; i < NUM_JOINTS; i++)
   {
-    this->jointPIDs[i] = common::PID(5, 0, 1, 1, -1);
+    this->jointPIDs[i] = common::PID(40, 0, 20, 1, -1);
     this->jointPositions[i] = 0;
     this->jointVelocities[i] = 0;
-    this->jointMaxEfforts[i] = 0.1;
+    this->jointMaxEfforts[i] = 10;
   }
-  jointPositions[1] = 0;
+  jointPositions[1] = 1;
 }
 
 //////////////////////////////////////////////////
@@ -49,7 +49,6 @@ void UarmController::OnUpdate()
     // first joint, set position
     double pos_target = this->jointPositions[i];
     double pos_curr = this->joints[i]->GetAngle(0).Radian();
-//    std::cout << this->joints[i]->GetAngle(0).Radian() << std::endl;
     double max_cmd = this->jointMaxEfforts[i];
 
     double pos_err = pos_curr - pos_target;
@@ -57,6 +56,8 @@ void UarmController::OnUpdate()
     double effort_cmd = this->jointPIDs[i].Update(pos_err, stepTime);
     effort_cmd = effort_cmd > max_cmd ? max_cmd : (effort_cmd < -max_cmd ? -max_cmd : effort_cmd);
     this->joints[i]->SetForce(0, effort_cmd);
+    if (i == 1)
+      std::cout << effort_cmd << std::endl;
   }
 }
 
