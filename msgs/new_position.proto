@@ -1,5 +1,5 @@
 package uarm_msgs.msgs;
-import "uarm_new_joint_position_msgs.proto";
+import "new_joint_position.proto";
 
 message NewPosition
 {
