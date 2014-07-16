@@ -60,8 +60,6 @@ private:
 private:
   common::Time prevUpdateTime;
 
-private	:
-  double pos_target;
 };
 GZ_REGISTER_MODEL_PLUGIN(UarmController)
 }

@@ -52,11 +52,7 @@ void UarmController::OnUpdate()
   common::Time stepTime = currTime - this->prevUpdateTime;
   this->prevUpdateTime = currTime;
 
-  double pos_target;
-  double pos_curr;
-  double max_cmd;
-  double pos_err;
-  double effort_cmd;
+  double pos_target, pos_curr, max_cmd, pos_err, effort_cmd;
 
   for (int i = 0; i < NUM_JOINTS; i++)
   {
@@ -77,6 +73,19 @@ void UarmController::OnUpdate()
 
 void UarmController::MoveCallback(uarm_msgs::msgs::NewPosition &_msg)
 {
+	for (int i = 0; i< _msg.positions().size(); i++){
+		if (_msg.positions().Get(i).joint_name() == "center_table_mount"){
+			this->jointPositions[0] = _msg.positions().Get(i).angle();
+		}
+
+		if (_msg.positions().Get(i).joint_name() == "left_base_shoulder_joint"){
+			this->jointPositions[1] = _msg.positions().Get(i).angle();
+
+		}
+		if (_msg.positions().Get(i).joint_name() == "left_base_arm_joint"){
+			this->jointPositions[2] = _msg.positions().Get(i).angle();
+		}
+	}
 
 }
 
