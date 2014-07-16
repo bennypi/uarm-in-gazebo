@@ -28,6 +28,14 @@ void UarmController::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   this->joints[2] = _model->GetJoint("left_base_arm_joint");
 
   this->updateConnection = event::Events::ConnectWorldUpdateBegin(boost::bind(&UarmController::OnUpdate, this));
+
+  // Initialize transport
+  gazebo::transport::init();
+  // Create our node for communication
+  gazebo::transport::NodePtr node(new gazebo::transport::Node());
+  node->Init();
+  // Listen to Gazebo world_stats topic
+//  gazebo::transport::SubscriberPtr sub = node->Subscribe("~/world_stats", MoveCallback);
 }
 
 /////////////////////////////////////////////////
@@ -44,21 +52,32 @@ void UarmController::OnUpdate()
   common::Time stepTime = currTime - this->prevUpdateTime;
   this->prevUpdateTime = currTime;
 
+  double pos_target;
+  double pos_curr;
+  double max_cmd;
+  double pos_err;
+  double effort_cmd;
+
   for (int i = 0; i < NUM_JOINTS; i++)
   {
     // first joint, set position
-    double pos_target = this->jointPositions[i];
-    double pos_curr = this->joints[i]->GetAngle(0).Radian();
-    double max_cmd = this->jointMaxEfforts[i];
+    pos_target = this->jointPositions[i];
+    pos_curr = this->joints[i]->GetAngle(0).Radian();
+    max_cmd = this->jointMaxEfforts[i];
 
-    double pos_err = pos_curr - pos_target;
+    pos_err = pos_curr - pos_target;
 
-    double effort_cmd = this->jointPIDs[i].Update(pos_err, stepTime);
+    effort_cmd = this->jointPIDs[i].Update(pos_err, stepTime);
     effort_cmd = effort_cmd > max_cmd ? max_cmd : (effort_cmd < -max_cmd ? -max_cmd : effort_cmd);
     this->joints[i]->SetForce(0, effort_cmd);
     if (i == 1)
       std::cout << effort_cmd << std::endl;
   }
+}
+
+void UarmController::MoveCallback(ConstWorldStatisticsPtr &_msg)
+{
+
 }
 
 }

@@ -4,6 +4,9 @@
 #include "gazebo/gazebo.hh"
 #include "gazebo/physics/physics.hh"
 #include "gazebo/transport/TransportTypes.hh"
+#include <gazebo/transport/transport.hh>
+#include <gazebo/msgs/msgs.hh>
+#include <iostream>
 
 #define NUM_JOINTS 3
 
@@ -21,6 +24,9 @@ public:
   void OnUpdate();
 
 private:
+  void MoveCallback(ConstWorldStatisticsPtr &_msg);
+
+private:
   virtual void Init();
 
 private:
@@ -28,6 +34,9 @@ private:
 
 private:
   event::ConnectionPtr updateConnection;
+
+private:
+  event::ConnectionPtr updatePositions;
 
 private:
   physics::ModelPtr model;
@@ -49,6 +58,9 @@ private:
 
 private:
   common::Time prevUpdateTime;
+
+private	:
+  double pos_target;
 };
 GZ_REGISTER_MODEL_PLUGIN(UarmController)
 }
