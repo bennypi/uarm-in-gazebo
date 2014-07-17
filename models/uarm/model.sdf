@@ -47,7 +47,7 @@
           </script>
         </material>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name='base_center'>
       <pose>0 0 0.012 0 0 0</pose>
@@ -94,7 +94,7 @@
           </script>
         </material>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="base_l">
       <pose> 0 0 0 0 0 0 </pose>
@@ -125,7 +125,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="base_r">
       <pose>0 0 0 0 0 0</pose>
@@ -156,7 +156,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="big_under_arm_l">
       <pose>0 0 0 0 0 0</pose>
@@ -219,7 +219,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="shoulder_l">
       <pose>0 0 0 0 0 0</pose>
@@ -251,7 +251,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="shoulder_r">
       <pose>0 0 0 0 0 0</pose>
@@ -283,7 +283,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="small_under_arm_l">
       <pose>0 0 0 0 0 0</pose>
@@ -315,7 +315,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="small_under_arm_r">
       <pose>0 0 0 0 0 0</pose>
@@ -347,7 +347,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="elbow">
       <pose>0 0 0 0 0 0</pose>
@@ -379,7 +379,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>    
     <link name="big_fore_arm_l">
       <pose>0 0 0 0 0 0</pose>
@@ -411,7 +411,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="big_fore_arm_r">
       <pose>0 0 0 0 0 0</pose>
@@ -443,7 +443,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="small_fore_arm">
       <pose>0 0 0 0 0 0</pose>
@@ -475,7 +475,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="wrist_l">
       <pose>0 0 0 0 0 0</pose>
@@ -507,7 +507,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     <link name="wrist_r">
       <pose>0 0 0 0 0 0</pose>
@@ -539,7 +539,7 @@
           </mesh>
         </geometry>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link> 
     <link name='suction_cup'>
       <pose>-0.15 -0.0 0.14 0 0 0</pose>
@@ -576,7 +576,7 @@
           </script>
         </material>
       </visual>
-      <self_collide>1</self_collide>
+      <self_collide>0</self_collide>
     </link>
     
     <!-- JOINTS ----------------------------------------------->
@@ -762,5 +762,6 @@
     </joint>
     <!-- Load the controller plugin to control the joints of the portal robot ! -->  
     <plugin name="UarmController" filename="build/libUarmController.so"/>
+    <plugin name="SuctionCup" filename="build/libsuction_cup.so"/>
   </model>
 </sdf>

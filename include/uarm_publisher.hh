@@ -9,5 +9,6 @@ class UarmPublisher
   public: UarmPublisher();
   public: ~UarmPublisher();
   private: gazebo::transport::PublisherPtr pub;
-  public: void send_message(char * joint_name, double angle);
+  public: void send_message(char *joint_name, double angle);
+  public: void send_message(char *joint_name[], double angle[]);
 };
