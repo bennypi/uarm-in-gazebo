@@ -27,6 +27,3 @@ add_dependencies(uarm_publisher new_joint_position_msgs new_position_msgs)
 add_executable(uarm_pub uarm_pub.cc)
 target_link_libraries(uarm_pub uarm_publisher)
 add_dependencies(uarm_pub new_joint_position_msgs new_position_msgs)
-
-add_executable(listener Listener.cpp)
-target_link_libraries(listener ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES})
