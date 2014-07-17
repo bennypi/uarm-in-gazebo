@@ -5,6 +5,7 @@ namespace gazebo
 {
 UarmController::UarmController()
 {
+  // initialize the pid controller
   for (int i = 0; i < NUM_JOINTS; i++)
   {
     this->jointPIDs[i] = common::PID(40, 0, 20, 1, -1);
@@ -53,6 +54,7 @@ void UarmController::OnUpdate()
   common::Time stepTime = currTime - this->prevUpdateTime;
   this->prevUpdateTime = currTime;
 
+  // needed attributes to calculate all needed values for the pid controller
   double pos_target, pos_curr, max_cmd, pos_err, effort_cmd;
 
   for (int i = 0; i < NUM_JOINTS; i++)
@@ -75,17 +77,25 @@ void UarmController::OnUpdate()
 void UarmController::MoveCallback(NewPosition &_msg)
 {
 	std::cout << "Received new Position" << std::endl;
+// iterate over the msg
 	for (int i = 0; i< _msg->positions().size(); i++){
+		// check if the current joint from the message is center_table_mount
+
 		if (_msg->positions().Get(i).joint_name() == "center_table_mount"){
+			// save the radian in jointPosition
+
 			this->jointPositions[0] = _msg->positions().Get(i).angle();
 		}
-
+// check if the current joint from the message is left_base_shoulder_joint
 		if (_msg->positions().Get(i).joint_name() == "left_base_shoulder_joint"){
+			// save the radian in jointPosition
 			this->jointPositions[1] = _msg->positions().Get(i).angle();
-
 		}
+		// check if the current joint from the message is left_base_arm_joint
 		if (_msg->positions().Get(i).joint_name() == "left_base_arm_joint"){
+			// save the radian in jointPosition
 			this->jointPositions[2] = _msg->positions().Get(i).angle();
+
 		}
 	}
 
