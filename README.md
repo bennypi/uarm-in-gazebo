@@ -8,3 +8,13 @@ Our plan (3. and 4. are bonuses if we have enough time):
 2. Create plugins to control the arm.
 3. Add a endeffector to the arm.
 4. Connect the arm to ROS.
+
+Installation
+==============
+
+1. Clone this repository.
+2. Go into the directory "uarm-in-gazebo"
+3. mkdir build && cd build
+4. cmake ../src/
+5. make
+6. execute launch_simulation.zsh or launch_simulation.bash (depending on your shell type)
