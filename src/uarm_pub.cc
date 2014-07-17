@@ -20,7 +20,7 @@ int main(int argc, char * argv[])
 
       double angles[3];
 
-      if (argv[1] == "home_pose")
+      if (strcmp(argv[1], "home_pose") == 0)
       {
         UarmPublisher publisher;
         angles[0] = 0;
