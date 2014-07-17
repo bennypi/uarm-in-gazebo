@@ -10,6 +10,7 @@
 #include <iostream>
 
 #define NUM_JOINTS 3
+ typedef const boost::shared_ptr<const uarm_msgs::msgs::NewPosition> NewPosition;
 
 namespace gazebo
 {
@@ -25,7 +26,7 @@ public:
   void OnUpdate();
 
 private:
-  void MoveCallback(uarm_msgs::msgs::NewPosition &_msg);
+  void MoveCallback(NewPosition &_msg);
 
 private:
   virtual void Init();
@@ -41,6 +42,9 @@ private:
 
 private:
   physics::ModelPtr model;
+
+private:
+  gazebo::transport::SubscriberPtr sub;
 
 private:
   physics::JointPtr joints[NUM_JOINTS];

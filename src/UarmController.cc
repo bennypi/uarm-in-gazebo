@@ -1,4 +1,5 @@
 #include "UarmController.hh"
+#include "new_position.pb.h"
 
 namespace gazebo
 {
@@ -29,13 +30,13 @@ void UarmController::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
 
   this->updateConnection = event::Events::ConnectWorldUpdateBegin(boost::bind(&UarmController::OnUpdate, this));
 
-//  // Initialize transport
+  // Initialize transport
 //  gazebo::transport::init();
-//  // Create our node for communication
-//  gazebo::transport::NodePtr node(new gazebo::transport::Node());
-//  node->Init();
+  // Create our node for communication
+  gazebo::transport::NodePtr node(new gazebo::transport::Node());
+  node->Init(this->model->GetName());
   // Listen to Gazebo world_stats topic
-//  gazebo::transport::SubscriberPtr sub = node->Subscribe("~/world_stats", MoveCallback);
+  sub = node->Subscribe("/uarm/topic", &UarmController::MoveCallback, this);
 }
 
 /////////////////////////////////////////////////
@@ -71,19 +72,20 @@ void UarmController::OnUpdate()
   }
 }
 
-void UarmController::MoveCallback(uarm_msgs::msgs::NewPosition &_msg)
+void UarmController::MoveCallback(NewPosition &_msg)
 {
-	for (int i = 0; i< _msg.positions().size(); i++){
-		if (_msg.positions().Get(i).joint_name() == "center_table_mount"){
-			this->jointPositions[0] = _msg.positions().Get(i).angle();
+	std::cout << "Received new Position" << std::endl;
+	for (int i = 0; i< _msg->positions().size(); i++){
+		if (_msg->positions().Get(i).joint_name() == "center_table_mount"){
+			this->jointPositions[0] = _msg->positions().Get(i).angle();
 		}
 
-		if (_msg.positions().Get(i).joint_name() == "left_base_shoulder_joint"){
-			this->jointPositions[1] = _msg.positions().Get(i).angle();
+		if (_msg->positions().Get(i).joint_name() == "left_base_shoulder_joint"){
+			this->jointPositions[1] = _msg->positions().Get(i).angle();
 
 		}
-		if (_msg.positions().Get(i).joint_name() == "left_base_arm_joint"){
-			this->jointPositions[2] = _msg.positions().Get(i).angle();
+		if (_msg->positions().Get(i).joint_name() == "left_base_arm_joint"){
+			this->jointPositions[2] = _msg->positions().Get(i).angle();
 		}
 	}
 
