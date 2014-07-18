@@ -30,14 +30,14 @@ or
 launch_simulation.zsh
 ```
 
-Now you can use `uarm_pub` to send commands to the uarm. It's possible to send an angle in radian to a specific joint:
+Now you can use `UarmPub` to send commands to the uarm. It's possible to send an angle in radian to a specific joint:
 ```
-build/uarm_pub joint_name angle
+build/UarmPub joint_name angle
 ```
 Controllable joints are *left_base_shoulder_joint*, *left_base_arm_joint* and *center_table_mount*.
-Alternatively you can give the `uarm_pub` a specific pose that the uarm should take:
+Alternatively you can give the `UarmPub` a specific pose that the uarm should take:
 ```
-build/uarm_pub pose
+build/UarmPub pose
 ```
 At the moment the only available pose is *home_pose* which gives all three joints the angle 0.
 
@@ -52,20 +52,20 @@ launch_simulation_with_box.zsh
 ```
 Now you have to navigate the suction cup over the box. You can use the following commands (out of the uarm directory):
 ```
-build/uarm_pub "left_base_shoulder_joint" -0.6
+build/UarmPub "left_base_shoulder_joint" -0.6
 ```
 and
 ```
-build/uarm_pub "left_base_arm_joint" -0.9
+build/UarmPub "left_base_arm_joint" -0.9
 ```
 The suction cup should be over the box now. To attach the box to the suction cup, you can use the following command:
 ```
-build/uarm_pub "attach" 1
+build/UarmPub "attach" 1
 ```
 After you attached the box it is possible to move the arm like described above and the box should be at the suction cup all time.
 If you want to dettach the box, you have to use the following command:
 ```
-build/uarm_pub "attach" 0
+build/UarmPub "attach" 0
 ```
 
 

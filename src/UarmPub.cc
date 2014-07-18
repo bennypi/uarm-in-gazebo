@@ -1,4 +1,4 @@
-#include "uarm_publisher.hh"
+#include "UarmPublisher.hh"
 
 using namespace std;
 
