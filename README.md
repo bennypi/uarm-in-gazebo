@@ -17,12 +17,11 @@ Installation
 3. mkdir build && cd build
 4. cmake ../src/
 5. make
-6. execute launch_simulation.zsh or launch_simulation.bash (depending on your shell type)
+
 
 Usage
 ==============
-
-Start the simulation with:
+After the installation you can start the simulation with the following command:
 ```
 launch_simulation.bash
 ```
@@ -41,3 +40,46 @@ Alternatively you can give the `uarm_pub` a specific pose that the uarm should t
 ./build/uarm_pub pose
 ```
 At the moment the only available pose is *home_pose* which gives all three joints the angle 0.
+
+Also you can start another world simulation where you can attach or dettach a small box with a suction cup.
+Therefor you have to execute the following command (out of the uarm directory):
+```
+launch_simulation_with_box.bash
+```
+or
+```
+launch_simulation_with_box.zsh
+```
+Now you have to navigate the suction cup over the box. You can use the following commands (out of the uarm directory):
+```
+build/uarm_pub "left_base_shoulder_joint" -0.6
+```
+and
+```
+build/uarm_pub "left_base_arm_joint" -0.9
+```
+The suction cup should be over the box now. To attach the box to the suction cup, you can use the following command:
+```
+build/uarm_pub "attach" 1
+```
+After you attached the box it is possible to move the arm like described above and the box should be at the suction cup all time.
+If you want to dettach the box, you have to use the following command:
+```
+build/uarm_pub "dettach" 0
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
