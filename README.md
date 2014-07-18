@@ -11,6 +11,7 @@ Our plan (3. and 4. are bonuses if we have enough time):
 
 Installation
 ==============
+The following installation is tested against Gazebo 1.9.5.
 
 1. Clone this repository.
 2. Go into the directory "uarm-in-gazebo"
