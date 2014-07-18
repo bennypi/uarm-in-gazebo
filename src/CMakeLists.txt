@@ -20,7 +20,7 @@ add_library(UarmController SHARED UarmController.cc)
 target_link_libraries(UarmController new_joint_position_msgs new_position_msgs ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES})
 add_dependencies(UarmController new_joint_position_msgs new_position_msgs)
 
-add_library(suction_cup SHARED suction_cup.cc)
+add_library(suction_cup SHARED SuctionCup.cc)
 target_link_libraries(suction_cup ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES})
 
 add_library(uarm_publisher uarm_publisher.cc)
