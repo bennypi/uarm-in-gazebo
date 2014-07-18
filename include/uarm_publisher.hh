@@ -21,10 +21,10 @@ class UarmPublisher
   /// \brief Sends the joint name and angle to the uarm-controller.
   /// Creates a NewPosition-message with a single NewJointPosition-message that 
   /// includes the given joint name and angle and sends the message to /uarm/topic.
-  public: void send_message(char *joint_name, double angle);
+  public: void send_message(const char *joint_name, double angle);
 
   /// \brief Sends the joint names and angles to the Uarm-Controller.
   /// Creates a NewPosition-message and a NewJointPosition-message for every joint
   /// name and angle pair. The message is then send to /uarm/topic.
-  public: void send_message(char *joint_name[], double angle[]);
+  public: void send_message(const char *joint_name[], double angle[]);
 };

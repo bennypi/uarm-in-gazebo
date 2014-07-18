@@ -15,7 +15,7 @@ int main(int argc, char * argv[])
   // if the command is in the format uarm_pub pose
   else if (argc == 2)
   {
-    char* joint_names[3];
+    const char* joint_names[3];
     joint_names[0] = "center_table_mount";
     joint_names[1] = "left_base_shoulder_joint";
     joint_names[2] = "left_base_arm_joint";

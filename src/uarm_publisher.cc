@@ -21,7 +21,7 @@ UarmPublisher::~UarmPublisher()
 }
 
 
-void UarmPublisher::send_message(char *joint_name, double angle)
+void UarmPublisher::send_message(const char *joint_name, double angle)
 {
   uarm_msgs::msgs::NewPosition msg;
   msg.add_positions();
@@ -32,7 +32,7 @@ void UarmPublisher::send_message(char *joint_name, double angle)
   std::cout << "Send message." << std::endl;
 }
 
-void UarmPublisher::send_message(char *joint_name[], double angle[])
+void UarmPublisher::send_message(const char *joint_name[], double angle[])
 {
   if (sizeof(joint_name) != sizeof(angle)) return;
 
