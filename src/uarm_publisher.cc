@@ -8,7 +8,7 @@ UarmPublisher::UarmPublisher()
   gazebo::transport::NodePtr node(new gazebo::transport::Node());
 
   node->Init("uarm_publisher");
-  this->pub = node->Advertise<uarm_msgs::msgs::NewPosition>("/uarm/topic"); //add topic name
+  this->pub = node->Advertise<uarm_msgs::msgs::NewPosition>("/uarm/topic");
 
   std::cout << "Waiting for connection." << std::endl;
   pub->WaitForConnection();
@@ -21,10 +21,9 @@ UarmPublisher::~UarmPublisher()
 }
 
 
-void UarmPublisher::send_message(char *joint_name, double angle)
+void UarmPublisher::send_message(const char *joint_name, double angle)
 {
   uarm_msgs::msgs::NewPosition msg;
-  //uarm_msgs::msgs::NewJointPosition joint_msg;
   msg.add_positions();
   msg.mutable_positions(0)->set_joint_name(joint_name);
   msg.mutable_positions(0)->set_angle(angle);
@@ -33,7 +32,7 @@ void UarmPublisher::send_message(char *joint_name, double angle)
   std::cout << "Send message." << std::endl;
 }
 
-void UarmPublisher::send_message(char *joint_name[], double angle[])
+void UarmPublisher::send_message(const char *joint_name[], double angle[])
 {
   if (sizeof(joint_name) != sizeof(angle)) return;
 
