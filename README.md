@@ -65,7 +65,7 @@ build/uarm_pub "attach" 1
 After you attached the box it is possible to move the arm like described above and the box should be at the suction cup all time.
 If you want to dettach the box, you have to use the following command:
 ```
-build/uarm_pub "dettach" 0
+build/uarm_pub "attach" 0
 ```
 
 
