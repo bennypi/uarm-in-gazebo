@@ -18,3 +18,26 @@ Installation
 4. cmake ../src/
 5. make
 6. execute launch_simulation.zsh or launch_simulation.bash (depending on your shell type)
+
+Usage
+==============
+
+Start the simulation with:
+```
+launch_simulation.bash
+```
+or
+```
+launch_simulation.zsh
+```
+
+Now you can use `uarm_pub` to send commands to the uarm. It's possible to send an angle in radian to a specific joint:
+```
+./build/uarm_pub joint_name angle
+```
+Controllable joints are *left_base_shoulder_joint*, *left_base_arm_joint* and *center_table_mount*.
+Alternatively you can give the `uarm_pub` a specific pose that the uarm should take:
+```
+./build/uarm_pub pose
+```
+At the moment the only available pose is *home_pose* which gives all three joints the angle 0.
