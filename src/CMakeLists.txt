@@ -30,3 +30,6 @@ add_dependencies(uarm_publisher new_joint_position_msgs new_position_msgs)
 add_executable(uarm_pub uarm_pub.cc)
 target_link_libraries(uarm_pub uarm_publisher)
 add_dependencies(uarm_pub new_joint_position_msgs new_position_msgs)
+
+add_library(uarm_box_contact SHARED ContactPlugin.cc)
+target_link_libraries(uarm_box_contact ${GAZEBO_libraries})

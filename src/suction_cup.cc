@@ -26,6 +26,7 @@ void SuctionCup::OnUpdate()
   {
     for (int i = 0; i<  collisions.size(); i++)
     {
+//      std::cout << "Collision Object: " << collisions[i]->GetLink()->GetName() << std::endl;
       if (collisions[i]->GetLink()->GetName() != "suction_cup")
       {
         std::cout << "Attach Joint." << std::endl;
