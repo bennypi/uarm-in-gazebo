@@ -34,15 +34,13 @@ void UarmController::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   // Create our node for communication
   gazebo::transport::NodePtr node(new gazebo::transport::Node());
   node->Init(this->model->GetName());
-  // Listen to Gazebo world_stats topic
+  // Listen to commands
   sub = node->Subscribe("/uarm/topic", &UarmController::MoveCallback, this);
 }
 
 /////////////////////////////////////////////////
 void UarmController::Init()
 {
-  // physics::EntityPtr parent = boost::dynamic_pointer_cast<physics::Entity>(
-  //   this->joints[0]->GetChild());
 }
 
 //////////////////////////////////////////////////
@@ -57,7 +55,6 @@ void UarmController::OnUpdate()
 
   for (int i = 0; i < NUM_JOINTS; i++)
   {
-    // first joint, set position
     pos_target = this->jointPositions[i];
     pos_curr = this->joints[i]->GetAngle(0).Radian();
     max_cmd = this->jointMaxEfforts[i];
@@ -67,36 +64,34 @@ void UarmController::OnUpdate()
     effort_cmd = this->jointPIDs[i].Update(pos_err, stepTime);
     effort_cmd = effort_cmd > max_cmd ? max_cmd : (effort_cmd < -max_cmd ? -max_cmd : effort_cmd);
     this->joints[i]->SetForce(0, effort_cmd);
-//    if (i == 1)
-//      std::cout << effort_cmd << std::endl;
   }
 }
 
+//////////////////////////////////////////////////
 void UarmController::MoveCallback(NewPosition &_msg)
 {
-	std::cout << "Received new Position" << std::endl;
-// iterate over the msg
-	for (int i = 0; i< _msg->positions().size(); i++){
-		// check if the current joint from the message is center_table_mount
-
-		if (_msg->positions().Get(i).joint_name() == "center_table_mount"){
-			// save the radian in jointPosition
-
-			this->jointPositions[0] = _msg->positions().Get(i).angle();
-		}
-// check if the current joint from the message is left_base_shoulder_joint
-		if (_msg->positions().Get(i).joint_name() == "left_base_shoulder_joint"){
-			// save the radian in jointPosition
-			this->jointPositions[1] = _msg->positions().Get(i).angle();
-		}
-		// check if the current joint from the message is left_base_arm_joint
-		if (_msg->positions().Get(i).joint_name() == "left_base_arm_joint"){
-			// save the radian in jointPosition
-			this->jointPositions[2] = _msg->positions().Get(i).angle();
-
-		}
-	}
-
+  std::cout << "Received new Position" << std::endl;
+  // iterate over the message
+  for (int i = 0; i < _msg->positions().size(); i++)
+  {
+    // check if the current joint from the message is center_table_mount
+    if (_msg->positions().Get(i).joint_name() == "center_table_mount")
+    {
+      // save the radian in jointPosition
+      this->jointPositions[0] = _msg->positions().Get(i).angle();
+    }
+    // check if the current joint from the message is left_base_shoulder_joint
+    if (_msg->positions().Get(i).joint_name() == "left_base_shoulder_joint")
+    {
+      // save the radian in jointPosition
+      this->jointPositions[1] = _msg->positions().Get(i).angle();
+    }
+    // check if the current joint from the message is left_base_arm_joint
+    if (_msg->positions().Get(i).joint_name() == "left_base_arm_joint")
+    {
+      // save the radian in jointPosition
+      this->jointPositions[2] = _msg->positions().Get(i).angle();
+    }
+  }
 }
-
 }

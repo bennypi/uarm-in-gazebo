@@ -9,7 +9,8 @@
 #include <gazebo/msgs/msgs.hh>
 #include "suction_cup_contact.pb.h"
 
-/// Thanks to the gazebo Tutorial.
+/// Some parts of the code are copied from here:
+/// http://gazebosim.org/tutorials/?tut=contact_sensor
 namespace gazebo
 {
 /// \brief Class to check for Contacts with the suction cup
