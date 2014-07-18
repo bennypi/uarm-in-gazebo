@@ -17,6 +17,7 @@ Installation
 3. mkdir build && cd build
 4. cmake ../src/
 5. make
+6. cd ..
 
 
 Usage
@@ -42,7 +43,7 @@ build/UarmPub pose
 At the moment the only available pose is *home_pose* which gives all three joints the angle 0.
 
 Also you can start another world simulation where you can attach or dettach a small box with a suction cup.
-Therefor you have to execute the following command (out of the uarm directory):
+Therefor you have to execute the following command:
 ```
 launch_simulation_with_box.bash
 ```
@@ -50,7 +51,7 @@ or
 ```
 launch_simulation_with_box.zsh
 ```
-Now you have to navigate the suction cup over the box. You can use the following commands (out of the uarm directory):
+Now you have to navigate the suction cup over the box. You can use the following commands:
 ```
 build/UarmPub "left_base_shoulder_joint" -0.6
 ```
