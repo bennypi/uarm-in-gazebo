@@ -61,6 +61,12 @@ private:
     gazebo::transport::SubscriberPtr sub_suck;
 
 private: std::string link_name;
+
+private: std::string model_name;
+
+private: physics::JointPtr _joint;
+
+private: bool joint_created;
 };
 GZ_REGISTER_MODEL_PLUGIN(SuctionCup)
 }
