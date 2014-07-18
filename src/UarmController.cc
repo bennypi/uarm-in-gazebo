@@ -35,7 +35,7 @@ void UarmController::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   gazebo::transport::NodePtr node(new gazebo::transport::Node());
   node->Init(this->model->GetName());
   // Listen to commands
-  sub = node->Subscribe("/uarm/topic", &UarmController::MoveCallback, this);
+  sub = node->Subscribe("/uarm/commands", &UarmController::MoveCallback, this);
 }
 
 /////////////////////////////////////////////////

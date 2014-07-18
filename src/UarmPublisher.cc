@@ -8,7 +8,7 @@ UarmPublisher::UarmPublisher()
   gazebo::transport::NodePtr node(new gazebo::transport::Node());
 
   node->Init("uarm_publisher");
-  this->pub = node->Advertise<uarm_msgs::msgs::NewPosition>("/uarm/topic");
+  this->pub = node->Advertise<uarm_msgs::msgs::NewPosition>("/uarm/commands");
 
   std::cout << "Waiting for connection." << std::endl;
   pub->WaitForConnection();

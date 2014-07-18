@@ -24,7 +24,7 @@ void SuctionCup::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
                             &SuctionCup::ContactCallback, this);
 
   // listen to the commands
-  sub_suck = node->Subscribe("/uarm/topic", &SuctionCup::SuckCallback, this);
+  sub_suck = node->Subscribe("/uarm/commands", &SuctionCup::SuckCallback, this);
 
   // nothing attached on startup
   joint_created = false;
