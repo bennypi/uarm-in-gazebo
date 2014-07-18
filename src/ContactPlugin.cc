@@ -43,21 +43,15 @@ void ContactPlugin::OnUpdate()
   contacts = this->parentSensor->GetContacts();
   for (unsigned int i = 0; i < contacts.contact_size(); ++i)
   {
-    std::cout << "Collision between[" << contacts.contact(i).collision1()
-              << "] and [" << contacts.contact(i).collision2() << "]\n";
+//    if(contacts.contact(i).collision1() != "ground_plane::ground_link::collision" &&
+//    		contacts.contact(i).collision2() != "ground_plane::ground_link::collision"){
+//    	std::cout << "Collision between[" << contacts.contact(i).collision1()
+//    	              << "] and [" << contacts.contact(i).collision2() << "]\n";
+//    }
 
-    for (unsigned int j = 0; j < contacts.contact(i).position_size(); ++j)
-    {
-//      std::cout << j << "  Position:"
-//                << contacts.contact(i).position(j).x() << " "
-//                << contacts.contact(i).position(j).y() << " "
-//                << contacts.contact(i).position(j).z() << "\n";
-//      std::cout << "   Normal:"
-//                << contacts.contact(i).normal(j).x() << " "
-//                << contacts.contact(i).normal(j).y() << " "
-//                << contacts.contact(i).normal(j).z() << "\n";
-//      std::cout << "   Depth:" << contacts.contact(i).depth(j) << "\n";
-
+    if ((contacts.contact(i).collision1() == "uarm::suction_cup::collision" && contacts.contact(i).collision2() == "uarm_box::link::uarm_box_collision")
+        			|| (contacts.contact(i).collision2() == "uarm::suction_cup::collision" && contacts.contact(i).collision1() == "uarm_box::link::uarm_box_collision")){
+        		std::cout << "Found contact between suction cup and uarm_box\n";
     }
   }
 }
