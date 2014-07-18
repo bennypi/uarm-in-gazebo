@@ -10,7 +10,7 @@
 #include <iostream>
 
 #define NUM_JOINTS 3
- typedef const boost::shared_ptr<const uarm_msgs::msgs::NewPosition> NewPosition;
+typedef const boost::shared_ptr<const uarm_msgs::msgs::NewPosition> NewPosition;
 
 namespace gazebo
 {

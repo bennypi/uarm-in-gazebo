@@ -14,7 +14,9 @@ set (msgs
 set (msgs
   new_position.proto
   new_joint_position.proto
+  suction_cup_contact.proto
 )
+
 
 PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS ${msgs})
 
@@ -23,3 +25,6 @@ target_link_libraries(new_joint_position_msgs ${PROTOBUF_LIBRARY})
 
 add_library(new_position_msgs SHARED ${PROTO_SRCS})
 target_link_libraries(new_position_msgs ${PROTOBUF_LIBRARY})
+
+add_library(suction_cup_contact_msgs SHARED ${PROTO_SRCS})
+target_link_libraries(suction_cup_contact_msgs ${PROTOBUF_LIBRARY})

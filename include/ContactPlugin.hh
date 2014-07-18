@@ -5,6 +5,9 @@
 
 #include <gazebo/gazebo.hh>
 #include <gazebo/sensors/sensors.hh>
+#include <gazebo/transport/transport.hh>
+#include <gazebo/msgs/msgs.hh>
+#include "suction_cup_contact.pb.h"
 
 /// Thanks to the gazebo Tutorial.
 namespace gazebo
@@ -32,6 +35,9 @@ namespace gazebo
     /// \brief Connection that maintains a link between the contact sensor's
     /// updated signal and the OnUpdate callback.
     private: event::ConnectionPtr updateConnection;
+
+    private: gazebo::transport::PublisherPtr pub;
+    public: void send_message(const char *contact_name);
   };
 }
 #endif

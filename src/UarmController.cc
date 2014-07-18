@@ -31,8 +31,6 @@ void UarmController::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
 
   this->updateConnection = event::Events::ConnectWorldUpdateBegin(boost::bind(&UarmController::OnUpdate, this));
 
-  // Initialize transport
-//  gazebo::transport::init();
   // Create our node for communication
   gazebo::transport::NodePtr node(new gazebo::transport::Node());
   node->Init(this->model->GetName());
