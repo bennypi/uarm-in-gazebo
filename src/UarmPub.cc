@@ -24,6 +24,7 @@ int main(int argc, char * argv[])
 
     if (strcmp(argv[1], "home_pose") == 0)
     {
+      cout << "Taking home pose" << endl;
       UarmPublisher publisher;
       angles[0] = 0;
       angles[1] = 0;
@@ -33,7 +34,7 @@ int main(int argc, char * argv[])
   }
   else
   {
-    cout << "Use 'uarm_pub joint_name angle' or 'uarm_pub pose'" << endl;
+    cout << "Use 'UarmPub joint_name angle' or 'UarmPub pose'" << endl;
   }
 
   return -1;
