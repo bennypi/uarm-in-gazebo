@@ -53,21 +53,23 @@ void ContactPlugin::OnUpdate()
   contacts = this->parentSensor->GetContacts();
   for (unsigned int i = 0; i < contacts.contact_size(); ++i)
   {
+	  std::cout << "Collision between[" << contacts.contact(i).collision1()
+	                << "] and [" << contacts.contact(i).collision2() << "]\n";
     // make sure that one collision is from the suction cup
     // and the other collision is NOT from the suction cup
     if (std::strcmp(contacts.contact(i).collision1().c_str(),
-                    "uarm::suction_cup::collision") == 0
+                    "uarm::suction_cup::uarm_suction_cup_collison") == 0
         && std::strcmp(contacts.contact(i).collision2().c_str(),
-                       "uarm::suction_cup::collision") != 0)
+                       "uarm::suction_cup::uarm_suction_cup_collison") != 0)
       // send the collision that is NOT from the suction cup
       this->send_message(contacts.contact(i).collision2().c_str());
 
     // make sure that one collision is from the suction cup
     // and the other collision is NOT from the suction cup
     if (std::strcmp(contacts.contact(i).collision2().c_str(),
-                    "uarm::suction_cup::collision") == 0
+                    "uarm::suction_cup::uarm_suction_cup_collison") == 0
         && std::strcmp(contacts.contact(i).collision1().c_str(),
-                       "uarm::suction_cup::collision") != 0)
+                       "uarm::suction_cup::uarm_suction_cup_collison") != 0)
       // send the collision that is NOT from the suction cup
       this->send_message(contacts.contact(i).collision1().c_str());
   }

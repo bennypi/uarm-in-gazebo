@@ -65,11 +65,12 @@
       <uri>model://uarm</uri>
       <pose>0 0 0 0 0 0</pose>
     </include>
-    <model name='uarm_box'>
+    
+    <model name='uarm_box_1'>
       <pose>-0.2 0 0.05 0 -0 0</pose>
       <link name='link'>
         <inertial>
-          <mass>1</mass>
+          <mass>0.025</mass>
           <inertia>
             <ixx>0.083</ixx>
             <ixy>0</ixy>
@@ -79,7 +80,7 @@
             <izz>0.083</izz>
           </inertia>
         </inertial>
-        <collision name='uarm_box_collision'>
+        <collision name='uarm_box_1_collision'>
           <geometry>
             <box>
               <size>0.05 0.05 0.05</size>
@@ -102,6 +103,12 @@
               <size>0.05 0.05 0.05</size>
             </box>
           </geometry>
+          <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Green</name>
+          </script>
+        </material>
         </visual>
         <velocity_decay>
           <linear>0</linear>
@@ -109,16 +116,123 @@
         </velocity_decay>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
-        <gravity>1</gravity>
-        <sensor name='uarm_box_contact' type='contact'>
-          <plugin name="uarm_box_contact_plugin" filename="libuarm_box_contact.so"/>
-          <contact>
-            <collision>uarm_box_collision</collision>
-          </contact>
-        </sensor>
+        <gravity>1</gravity>        
         </link>
       <static>0</static>
     </model>
+    
+    <model name='uarm_box_2'>
+      <pose>-0.2 0.1 0.05 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>0.083</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.083</iyy>
+            <iyz>0</iyz>
+            <izz>0.083</izz>
+          </inertia>
+        </inertial>
+        <collision name='uarm_box_2_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+          <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>        
+        </link>
+      <static>0</static>
+    </model>
+    
+    <model name='uarm_box_3'>
+      <pose>-0.2 -0.1 0.05 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>0.083</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.083</iyy>
+            <iyz>0</iyz>
+            <izz>0.083</izz>
+          </inertia>
+        </inertial>
+        <collision name='uarm_box_3_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+          <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Red</name>
+          </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>        
+        </link>
+      <static>0</static>
+    </model>
+    
+    
+    
     <!--
     <model name='thing'>
       <static>0</static>
