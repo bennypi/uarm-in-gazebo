@@ -70,7 +70,7 @@
       <pose>-0.2 0 0.05 0 -0 0</pose>
       <link name='link'>
         <inertial>
-          <mass>0.025</mass>
+          <mass>0.0025</mass>
           <inertia>
             <ixx>0.083</ixx>
             <ixy>0</ixy>
@@ -125,7 +125,7 @@
       <pose>-0.2 0.1 0.05 0 -0 0</pose>
       <link name='link'>
         <inertial>
-          <mass>0.025</mass>
+          <mass>0.0025</mass>
           <inertia>
             <ixx>0.083</ixx>
             <ixy>0</ixy>
@@ -180,7 +180,7 @@
       <pose>-0.2 -0.1 0.05 0 -0 0</pose>
       <link name='link'>
         <inertial>
-          <mass>0.025</mass>
+          <mass>0.0025</mass>
           <inertia>
             <ixx>0.083</ixx>
             <ixy>0</ixy>

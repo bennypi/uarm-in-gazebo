@@ -88,7 +88,7 @@ void SuctionCup::SuckCallback(NewPosition &_msg)
     {
       // detach joint
       this->_joint->Detach();
-      joint_created = true;
+      joint_created = false;
     }
   }
 }
