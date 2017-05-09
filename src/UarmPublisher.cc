@@ -2,7 +2,7 @@
 
 UarmPublisher::UarmPublisher()
 {
-  gazebo::load();
+  gazebo::common::load();
   gazebo::transport::init();
   gazebo::transport::run();
   gazebo::transport::NodePtr node(new gazebo::transport::Node());
