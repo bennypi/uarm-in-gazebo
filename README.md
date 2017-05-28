@@ -1,3 +1,5 @@
+__This repository is no longer maintained. Take a look at https://github.com/jetdillo/uarm-in-gazebo for a maintained fork__
+
 uarm-in-gazebo
 ==============
 We are planning to create a working model of the uarm in gazebo. The uarm is a open-source robotic arm which was created by uFactory and founded through Kickstarter https://www.kickstarter.com/projects/ufactory/uarm-put-a-miniature-industrial-robot-arm-on-your.
